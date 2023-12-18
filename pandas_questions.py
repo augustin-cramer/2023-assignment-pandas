@@ -84,8 +84,7 @@ def plot_referendum_map(referendum_result_by_regions):
     geo_data = gpd.read_file("data/regions.geojson")
     df = geo_data.join(referendum_result_by_regions, on="code").dropna()
     df["ratio"] = df["Choice A"] / (df["Choice A"] + df["Choice B"])
-    df.plot(column="ratio", legend=True)
-    
+    df.plot(column="ratio", legend=True, cmap="RdBu_r")
     return df
 
 
